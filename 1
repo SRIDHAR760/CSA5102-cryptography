@@ -1,0 +1,15 @@
+def caesar(text, k):
+    out = ""
+    for ch in text:
+        if ch.isalpha():
+            b = ord("A") if ch.isupper() else ord("a")
+            out += chr((ord(ch) - b + k) % 26 + b)
+        else:
+            out += ch
+    return out
+
+text = input("Enter plaintext: ")
+k = int(input("Enter key k (1-25): "))
+enc = caesar(text, k)
+print("Ciphertext:", enc)
+print("Decrypted :", caesar(enc, -k))

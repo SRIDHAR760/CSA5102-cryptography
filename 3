@@ -1,0 +1,11 @@
+from playfair import build_matrix, prepare, crypt, show
+
+key = input("Enter keyword: ")
+text = input("Enter plaintext: ")
+M = build_matrix(key)
+show(M)
+pairs = prepare(text)
+print("Digraphs  :", " ".join(pairs))
+enc = crypt(M, pairs, +1)
+print("Ciphertext:", "".join(enc))
+print("Decrypted :", "".join(crypt(M, enc, -1)))
